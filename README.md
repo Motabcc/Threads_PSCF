@@ -1,3 +1,4 @@
+```markdown
 # Tarefa 01-01: Processamento Multithread com Vetores em Java
 
 Este projeto foi desenvolvido como um estudo prático sobre **Programação Concorrente e Multithreading** em Java. O objetivo principal é otimizar a inicialização e o processamento de um vetor de grande escala (200 milhões de posições) dividindo a carga de trabalho entre múltiplas threads.
@@ -34,14 +35,32 @@ Para evitar que uma thread sobrescreva o trabalho da outra, a divisão do proces
 1. **Clone o repositório ou navegue até a pasta do projeto:**
    ```bash
    cd caminho/para/o/projeto/thread_estudo
-**Compile o arquivo Java:**
- ```bash
-   javac src/Main.java -d bin
-2. **Execute o programa:**
 
-Bash
+```
+
+2. **Compile o arquivo Java:**
+```bash
+javac src/Main.java -d bin
+
+```
+
+
+3. **Execute o programa:**
+```bash
 java -cp bin Main
 
-📦 Commits Estruturados
-O histórico do Git deste projeto foi construído utilizando boas práticas de mercado baseadas em Conventional Commits:
-feat: Threads funcionando — Implementação da lógica de concorrência, divisão de escopo do vetor e filtragem condicional dos dados.
+```
+
+
+
+---
+
+## 📦 Commits Estruturados
+
+O histórico do Git deste projeto foi construído utilizando boas práticas de mercado baseadas em *Conventional Commits*:
+
+* `feat: Threads funcionando` — Implementação da lógica de concorrência, divisão de escopo do vetor e filtragem condicional dos dados.
+
+```
+
+```
