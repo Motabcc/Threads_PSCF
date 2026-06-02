@@ -34,11 +34,10 @@ Para evitar que uma thread sobrescreva o trabalho da outra, a divisão do proces
 1. **Clone o repositório ou navegue até a pasta do projeto:**
    ```bash
    cd caminho/para/o/projeto/thread_estudo
-Compile o arquivo Java:
-
-Bash
-javac src/Main.java -d bin
-Execute o programa:
+**Compile o arquivo Java:**
+ ```bash
+   javac src/Main.java -d bin
+2. **Execute o programa:**
 
 Bash
 java -cp bin Main
