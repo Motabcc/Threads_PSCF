@@ -1,62 +1,57 @@
-```markdown
-# Tarefa 01-01: Processamento Multithread com Vetores em Java
+# 🚀 Estudo Prático de Computação Concorrente
 
-Este projeto foi desenvolvido como um estudo prático sobre **Programação Concorrente e Multithreading** em Java. O objetivo principal é otimizar a inicialização e o processamento de um vetor de grande escala (200 milhões de posições) dividindo a carga de trabalho entre múltiplas threads.
-
-## 📋 Requisitos da Tarefa
-
-O programa atende estritamente aos seguintes critérios:
-1. Aloca um vetor do tipo `double` com 200 milhões de entradas.
-2. Inicializa o vetor com valores aleatórios usando múltiplas threads de forma paralela.
-3. Exibe a mensagem `"Encerrou inicializacao"` imediatamente após o preenchimento total do vetor.
-4. Computa e exibe a quantidade de valores no vetor que estão no intervalo aberto entre `0.25` e `0.75` (0.25 < valor < 0.75).
+Este repositório foi desenvolvido para centralizar os laboratórios e tarefas práticos da disciplina de Computação Concorrente. O objetivo principal é explorar o uso de **Multithreading** em Java para otimizar o processamento de dados em larga escala, dividindo cargas de trabalho e reduzindo o tempo de execução através do paralelismo.
 
 ---
 
-## 🛠️ Arquitetura e Solução
+## 📌 Tarefa 01-01: Processamento Multithread com Vetores em Java
 
-Para evitar que uma thread sobrescreva o trabalho da outra, a divisão do processamento foi estruturada da seguinte forma:
+O objetivo desta primeira tarefa foi otimizar a inicialização e a análise de um vetor de grande escala de forma paralela.
 
-* **Divisão de Escopo:** O tamanho total do vetor (200.000.000) é dividido ao meio. 
-* **Thread 1 (t1):** Fica responsável por preencher o intervalo de índices de `0` até `100.000.000`.
-* **Thread 2 (t2):** Fica responsável por preencher o intervalo de índices de `100.000.000` até `200.000.000`.
-* **Sincronização (`join`):** A thread principal (`main`) utiliza o método `.join()` para aguardar o término das threads de inicialização antes de exibir a mensagem de conclusão e iniciar a contagem dos dados, garantindo a consistência dos dados.
+### 📋 Requisitos da Tarefa
+1. Alocar um vetor do tipo `double` com 200 milhões de entradas.
+2. Inicializar o vetor com valores aleatórios usando múltiplas threads de forma paralela.
+3. Exibir a mensagem `"Encerrou inicializacao"` imediatamente após o preenchimento total do vetor.
+4. Computa e exibe a quantidade de valores no vetor que estão no intervalo aberto entre `0.25` e `0.75` ($0.25 < valor < 0.75$).
+
+### 🛠️ Arquitetura e Solução
+Para evitar condições de corrida (Race Conditions), o tamanho total do vetor (200.000.000) foi dividido igualmente entre as threads:
+* **Thread 1 (t1):** Responsável por preencher o intervalo de índices de `0` até `100.000.000`.
+* **Thread 2 (t2):** Responsável por preencher o intervalo de índices de `100.000.000` até `200.000.000`.
+* **Sincronização:** A thread principal (`main`) utiliza o método `.join()` para aguardar o término da inicialização paralela antes de exibir a mensagem de conclusão e iniciar a leitura dos dados para a contagem.
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 📌 Tarefa 01-02: Leitura de Arquivos Multithread (Contador de Caracteres)
+
+O objetivo desta segunda tarefa é otimizar o processamento de I/O (leitura de disco) e a manipulação de strings lendo milhares de arquivos de texto simultaneamente.
+
+### 📋 Requisitos da Tarefa
+1. Desenvolver um programa que leia todos os arquivos no formato `.txt` de um determinado diretório.
+2. Realizar a contagem consolidada das letras do alfabeto ('A' a 'Z') encontradas em todos os arquivos combinados.
+3. Exibir na tela o tempo total de execução gasto para realizar todo o processamento.
+4. Testar o programa inicialmente com um diretório de amostra (100 arquivos) e, em seguida, com o diretório de produção (35.000 arquivos).
+5. Efetuar análises de desempenho variando a quantidade de threads para submeter o código com a melhor performance para a arquitetura do seu processador.
+
+### 🛠️ Estrutura de Otimização
+* **Divisão de Arquivos:** A lista total de arquivos do diretório é dividida em fatias iguais para cada thread criada.
+* **Evitando Concorrência:** Para máxima performance, cada thread gerencia seu próprio array local de contagem (26 posições). Após todas as threads terminarem a leitura via `.join()`, a thread principal junta os totais, evitando gargalos de sincronização durante a leitura.
+
+---
+
+## 🚀 Como Executar as Tarefas
 
 ### Pré-requisitos
 * Java JDK 11 ou superior instalado.
-* Git (opcional, para clonar).
+* Git configurado.
 
-### Passo a Passo
-
-1. **Clone o repositório ou navegue até a pasta do projeto:**
-   ```bash
-   cd caminho/para/o/projeto/thread_estudo
-
-```
-
-2. **Compile o arquivo Java:**
+### Executando a Tarefa 01-01
 ```bash
+# Navegue até a pasta da tarefa 1
+cd Tarefa_01_01
+
+# Compile o código
 javac src/Main.java -d bin
 
-```
-
-
-3. **Execute o programa:**
-```bash
+# Execute o programa
 java -cp bin Main
-
-```
-
-
-
----
-
-## 📦 Commits Estruturados
-
-O histórico do Git deste projeto foi construído utilizando boas práticas de mercado baseadas em *Conventional Commits*:
-
-* `feat: Threads funcionando` — Implementação da lógica de concorrência, divisão de escopo do vetor e filtragem condicional dos dados.
