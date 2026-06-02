@@ -60,7 +60,3 @@ java -cp bin Main
 O histórico do Git deste projeto foi construído utilizando boas práticas de mercado baseadas em *Conventional Commits*:
 
 * `feat: Threads funcionando` — Implementação da lógica de concorrência, divisão de escopo do vetor e filtragem condicional dos dados.
-
-```
-
-```
