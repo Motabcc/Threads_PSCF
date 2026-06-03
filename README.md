@@ -1,3 +1,4 @@
+```markdown
 # 🚀 Estudo Prático de Computação Concorrente
 
 Este repositório foi desenvolvido para centralizar os laboratórios e tarefas práticos da disciplina de Computação Concorrente. O objetivo principal é explorar o uso de **Multithreading** em Java para otimizar o processamento de dados e resolver problemas clássicos de sincronização e concorrência através do paralelismo.
@@ -86,4 +87,46 @@ Implementação de um cenário de empréstimo distribuído de recursos finitos, 
    * Cada usuário (Thread) só pode pegar um livro por vez.
    * O usuário escolhe um livro aleatoriamente (de 1 a 10). Caso o livro esteja ocupado, a thread deve pausar (`wait()`) e aguardar até que o recurso específico seja devolvido.
    * Ao devolver o livro, o usuário deve liberar o recurso e sinalizar (`notifyAll()`) as outras threads concorrentes.
-   * Uso de intervalos aleatórios
+   * Uso de intervalos aleatórios (de 1 a 2 segundos) via `Thread.sleep()` para simular o tempo de retenção do livro e o tempo de descanso do usuário antes de tentar um novo empréstimo.
+
+### 🛠️ Arquitetura e Saída do Programa
+* **Controle de Estado:** Gerenciamento dos livros por meio de monitoramento atômico de disponibilidade de posições (Array booleano de estados).
+* **Monitoramento por Console:** O programa exibe em tempo real cada mudança de estado da seção crítica utilizando a formatação padronizada:
+
+```text
+Usuário 1 – Emprestou livro 2
+Usuário 2 – Emprestou livro 3
+Usuário 3 – Esperando livro 2 ficar disponível
+Usuário 1 – Devolveu livro 2
+Usuário 3 – Emprestou livro 2
+Usuário 2 – Devolveu livro 3
+...
+
+```
+
+---
+
+## 🚀 Como Executar as Tarefas
+
+### Pré-requisitos
+
+* Java JDK 11 ou superior instalado.
+* Git configurado.
+
+### Executando as Tarefas (Estrutura de Pastas)
+
+```bash
+# 1. Entre na pasta específica da tarefa desejada
+cd tarefa-03-conta-bancaria
+
+# 2. Compile os arquivos java para a pasta bin
+javac src/*.java -d bin
+
+# 3. Execute a classe principal
+java -cp bin Main
+
+```
+
+```
+
+```
