@@ -101,10 +101,11 @@ Usuário 1 – Devolveu livro 2
 Usuário 3 – Emprestou livro 2
 Usuário 2 – Devolveu livro 3
 ...
-📌 Tarefa: Gerenciamento de Capacidade com Semáforos (Banheiro Químico)
+```
+##📌 Tarefa: Gerenciamento de Capacidade com Semáforos (Banheiro Químico)
 Implementação prática voltada ao entendimento do controle de restrição de capacidade e concorrência sobre recursos genéricos idênticos utilizando a classe Semaphore.
 
-📋 Requisitos da Tarefa
+###📋 Requisitos da Tarefa
 Simular uma área de festival com 3 banheiros químicos compartilhados e 6 pessoas concorrentes (Threads).
 
 Regras de Negócio:
@@ -117,8 +118,8 @@ Ao desocupar a cabine, a thread chama o método .release(), incrementando o cont
 
 Uso de tempo aleatório de retenção do recurso (de 1 a 3 segundos) via Thread.sleep().
 
-🛠️ Saída Esperada do Programa
-Plaintext
+###🛠️ Saída Esperada do Programa
+```Plaintext
 Pessoa 1 chegou na fila do banheiro.
 Pessoa 2 chegou na fila do banheiro.
 ✨ Pessoa 1 ENTROU no banheiro.
@@ -126,7 +127,9 @@ Pessoa 2 chegou na fila do banheiro.
 🧻 Pessoa 2 SAIU do banheiro.
 ✨ Pessoa 4 ENTROU no banheiro.
 ...
-🚀 Como Executar as Tarefas
+```
+---
+##🚀 Como Executar as Tarefas
 Pré-requisitos
 Java JDK 11 ou superior instalado.
 
