@@ -10,14 +10,14 @@ class Conta {
     }
     public void saque(double valor){
         synchronized (this){
-            if(saldo >=valor){
+            while(this.saldo <valor){
+                try{
+                System.out.println("[SAQUE RECUSADO] SALDO ATUAL: R$"+String.format("%.2f",saldo) +" | TENTATIVA: "+ String.format("%.2f",valor));
+                this.wait();}
+                catch (InterruptedException e){e.printStackTrace(); }
+            }
             saldo-= valor;
             System.out.println("[SAQUE REALIZADO] SALDO ATUAL: R$"+String.format("%.2f",saldo) +" | VALOR SACADO: "+ String.format("%.2f",valor));
-            }else{
-                System.out.println("[SAQUE RECUSADO] SALDO ATUAL: R$"+String.format("%.2f",saldo) +" | TENTATIVA: "+ String.format("%.2f",valor));
-
-            }
-
         }
     }
     public void deposito(double valor){
@@ -25,15 +25,13 @@ class Conta {
          saldo += valor;
          System.out.println("[DEPOSITO] SALDO ATUAL: "+String.format("%.2f",saldo) +" | VALOR DEPOSITADO: "+ String.format("%.2f",valor));
 
+         this.notifyAll();
         }
     }
-
     public double saldo (){
         return  this.saldo;
     }
-
 }
-
 class Threads_Saque extends Thread{
     private  Conta contaCompartilhda;
 
@@ -41,9 +39,9 @@ class Threads_Saque extends Thread{
         this.contaCompartilhda = conta;
     }
     public void run(){
+        Random semente = new Random();
 
         while(true){
-            Random semente = new Random();
             double valor_random = semente.nextDouble() *100;
             contaCompartilhda.saque(valor_random);
             try {
@@ -62,11 +60,10 @@ class Threads_Deposito extends Thread{
         this.contaCompartilhada =conta;
     }
 
-
     public void run(){
+        Random semente = new Random();
 
         while(true){
-            Random semente = new Random();
             double valor_random = semente.nextDouble() *100;
             contaCompartilhada.deposito(valor_random);
             try{
