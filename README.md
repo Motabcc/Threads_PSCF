@@ -100,6 +100,7 @@ Usuário 1 – Devolveu livro 2
 Usuário 3 – Emprestou livro 2
 Usuário 2 – Devolveu livro 3
 ...
+```
 🚀 Como Executar as Tarefas
 Pré-requisitos
 Java JDK 11 ou superior instalado.
