@@ -1,4 +1,3 @@
-```markdown
 # 🚀 Estudo Prático de Computação Concorrente
 
 Este repositório foi desenvolvido para centralizar os laboratórios e tarefas práticos da disciplina de Computação Concorrente. O objetivo principal é explorar o uso de **Multithreading** em Java para otimizar o processamento de dados e resolver problemas clássicos de sincronização e concorrência através do paralelismo.
@@ -101,32 +100,3 @@ Usuário 1 – Devolveu livro 2
 Usuário 3 – Emprestou livro 2
 Usuário 2 – Devolveu livro 3
 ...
-
-```
-
----
-
-## 🚀 Como Executar as Tarefas
-
-### Pré-requisitos
-
-* Java JDK 11 ou superior instalado.
-* Git configurado.
-
-### Executando as Tarefas (Estrutura de Pastas)
-
-```bash
-# 1. Entre na pasta específica da tarefa desejada
-cd tarefa-03-conta-bancaria
-
-# 2. Compile os arquivos java para a pasta bin
-javac src/*.java -d bin
-
-# 3. Execute a classe principal
-java -cp bin Main
-
-```
-
-```
-
-```
