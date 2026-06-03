@@ -100,3 +100,19 @@ Usuário 1 – Devolveu livro 2
 Usuário 3 – Emprestou livro 2
 Usuário 2 – Devolveu livro 3
 ...
+🚀 Como Executar as Tarefas
+Pré-requisitos
+Java JDK 11 ou superior instalado.
+
+Git configurado.
+
+Executando as Tarefas (Estrutura de Pastas)
+Bash
+# 1. Entre na pasta específica da tarefa desejada
+cd tarefa-03-conta-bancaria
+
+# 2. Compile os arquivos java para a pasta bin
+javac src/*.java -d bin
+
+# 3. Execute a classe principal
+java -cp bin Main
