@@ -9,6 +9,7 @@ Este repositório foi desenvolvido para centralizar os laboratórios e tarefas p
 * **Java Threads:** Criação e gerenciamento de linhas de execução paralelas (`extends Thread` / `Runnable`).
 * **Exclusão Mútua:** Bloqueios de seção crítica utilizando o modificador `synchronized`.
 * **Sinalização Inter-threads:** Coordenação de fluxo ativa através de `wait()`, `notify()` e `notifyAll()`.
+* **Semáforos (`Semaphore`):** Controle de capacidade e gerenciamento de acesso a um pool de recursos genéricos finitos.
 * **Controle de I/O e Escalonamento:** Divisão síncrona de carga de trabalho e monitoramento de desempenho.
 
 ---
@@ -101,6 +102,32 @@ Usuário 3 – Emprestou livro 2
 Usuário 2 – Devolveu livro 3
 ...
 ```
+##📌 Tarefa: Gerenciamento de Capacidade com Semáforos (Banheiro Químico)
+Implementação prática voltada ao entendimento do controle de restrição de capacidade e concorrência sobre recursos genéricos idênticos utilizando a classe Semaphore.
+
+###📋 Requisitos da Tarefa
+Simular uma área de festival com 3 banheiros químicos compartilhados e 6 pessoas concorrentes (Threads).
+
+Regras de Negócio:
+
+O sistema limita estritamente o acesso simultâneo a no máximo 3 threads utilizando um semáforo com 3 permissões (new Semaphore(3)).
+
+Caso os banheiros estejam lotados, a linha de execução trava no método .acquire() aguardando uma liberação, de forma totalmente gerenciada pelo semáforo (sem loops condicionais extras).
+
+Ao desocupar a cabine, a thread chama o método .release(), incrementando o contador e acordando a próxima thread da fila de espera de maneira atômica.
+
+Uso de tempo aleatório de retenção do recurso (de 1 a 3 segundos) via Thread.sleep().
+
+###🛠️ Saída Esperada do Programa
+```Plaintext
+Pessoa 1 chegou na fila do banheiro.
+Pessoa 2 chegou na fila do banheiro.
+✨ Pessoa 1 ENTROU no banheiro.
+✨ Pessoa 2 ENTROU no banheiro.
+🧻 Pessoa 2 SAIU do banheiro.
+✨ Pessoa 4 ENTROU no banheiro.
+...
+```
 ---
 ##🚀 Como Executar as Tarefas
 Pré-requisitos
@@ -110,8 +137,8 @@ Git configurado.
 
 Executando as Tarefas (Estrutura de Pastas)
 Bash
-# 1. Entre na pasta específica da tarefa desejada
-cd tarefa-03-conta-bancaria
+# 1. Entre na pasta da tarefa que deseja testar
+cd tarefa-semaforo-banheiro
 
 # 2. Compile os arquivos java para a pasta bin
 javac src/*.java -d bin
