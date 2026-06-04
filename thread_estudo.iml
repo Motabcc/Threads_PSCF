@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/TDE-Biblioteca/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tarefa_01_03/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tarefa-semáforo-banheiro" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
